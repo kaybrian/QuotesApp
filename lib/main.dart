@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'lib/quote.dart'
+import 'quote.dart'
 
 void main() => runApp(MyApp());
 
