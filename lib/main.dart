@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'quote.dart'
 
 void main() => runApp(MyApp());
 
@@ -18,11 +19,35 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
- List<String> quotes = [
-        'We Generate Fears While We Sit. We Overcome Them By Action.',
-        'We May Encounter Many Defeats But We Must Not Be Defeated.',
-        'Don’t Let Yesterday Take Up Too Much Of Today.'
+ List<Quote> quotes = [
+        Quote(text:'We Generate Fears While We Sit. We Overcome Them By Action.', author:'Brian'),
+        Quote(text:'We May Encounter Many Defeats But We Must Not Be Defeated.',author:'kayongo'),
+        Quote(text:'Don’t Let Yesterday Take Up Too Much Of Today.',author:'johnson')
     ];
+
+    Widget quoteTemplate(quote){
+        return Card(
+            margin:EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+            child:Column(
+                children:<Widget>[
+                    Text(quote.text,
+                    style:TextStyle(
+                        fontSize:18.0,
+                        color:Colors.grey[550],
+                     ),
+                    ),
+                    SizedBox(height: 60.0 ),
+                    Text(quote.author,
+                    style:TextStyle(
+                        fontSize:14.0,
+                        color:Colors.grey[800],
+                     ),
+                    ),
+
+                ],
+            ),
+        );
+    }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,9 +58,7 @@ class _HomeState extends State<Home> {
             backgroundColor:Colors.redAccent,
         ),
         body:Column(
-            children: quotes.map( (quote) {
-                return Text(quote);
-            }).toList(),
+            children: quotes.map( (quote) => quoteTemplate(quote)).toList(),
         ),
     );
   }
