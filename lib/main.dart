@@ -18,6 +18,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+ List<String> quotes = [
+        'We Generate Fears While We Sit. We Overcome Them By Action.',
+        'We May Encounter Many Defeats But We Must Not Be Defeated.',
+        'Don’t Let Yesterday Take Up Too Much Of Today.'
+    ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +33,9 @@ class _HomeState extends State<Home> {
             backgroundColor:Colors.redAccent,
         ),
         body:Column(
-            
+            children: quotes.map( (quote) {
+                return Text(quote);
+            }).toList(),
         ),
     );
   }
