@@ -28,7 +28,10 @@ class _HomeState extends State<Home> {
     Widget quoteTemplate(quote){
         return Card(
             margin:EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
-            child:Column(
+            child:Padding(
+                padding:const EdgeInsets.all(10.0),
+                child:Column(
+                    crossAxisAlignment:CrossAxisAlignment.stretch,
                 children:<Widget>[
                     Text(quote.text,
                     style:TextStyle(
@@ -36,16 +39,17 @@ class _HomeState extends State<Home> {
                         color:Colors.grey[550],
                      ),
                     ),
-                    SizedBox(height: 60.0 ),
+                    SizedBox(height:30.0 ),
                     Text(quote.author,
                     style:TextStyle(
-                        fontSize:14.0,
+                        fontSize:16.0,
                         color:Colors.grey[800],
                      ),
                     ),
 
                 ],
             ),
+            )
         );
     }
   @override
